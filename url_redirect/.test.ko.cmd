@@ -1,1 +1,0 @@
-cmd_/root/coding/url_redirect/test.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.18.0-kali3-common/scripts/module-common.lds --build-id  -o /root/coding/url_redirect/test.ko /root/coding/url_redirect/test.o /root/coding/url_redirect/test.mod.o
