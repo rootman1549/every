@@ -1,0 +1,1 @@
+cmd_/root/coding/sockopt/kernel/hello.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.18.0-kali3-common/scripts/module-common.lds --build-id  -o /root/coding/sockopt/kernel/hello.ko /root/coding/sockopt/kernel/hello.o /root/coding/sockopt/kernel/hello.mod.o
