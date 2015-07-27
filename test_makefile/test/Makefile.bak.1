@@ -1,0 +1,37 @@
+DIR_INC = ./include
+DIR_SRC = ./src
+DIR_OBJ = ./obj
+DIR_BIN = ./bin
+DIR_LIB = ./
+
+SRC_FILE = $(wildcard ${DIR_SRC}/*.c)
+OBJ_FILE = $(patsubst %.c, ${DIR_OBJ}/%.o, $(notdir ${SRC_FILE}))
+LIB_FILE = testlib
+OBJ_LIB_FILE = testlib.o
+
+TARGET = main
+
+BIN_TARGET = ${DIR_BIN}/${TARGET}
+
+CC = gcc
+CFLAGS = -g -Wall -I${DIR_INC}
+LDFLAGS = -I${DIR_INC} -L$(DIR_LIB) -l$(LIB_FILE)
+
+${BIN_TARGET}:$(OBJ_LIB_FILE) ${OBJ_FILE}
+	$(CC) $(OBJ_FILE) -o $@ $(LDFLAGS) -static
+
+	echo ${SRC_FILE}
+	echo ${OBJ_FILE}
+	echo ${DIR_LIB}
+	echo ${LDFLAGS}
+
+${DIR_OBJ}/%.o:${DIR_SRC}/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_LIB_FILE):../libtest/testlib.c
+	$(CC) -c -I./include ../libtest/testlib.c -o $@\;
+	ar rcs libtestlib.a
+
+.PHONY:clean
+clean:
+	find ${DIR_OBJ} -name "*.o" -exec rm -rf "{}" \;
