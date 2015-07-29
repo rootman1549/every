@@ -3,7 +3,7 @@ TESTLIB_FILE := ../testlib/libtestlib.a
 TESTLIB_DIR := ../testlib/
 
 
-all : $(TESTLIB_DIR) main
+all : main
 
 main : $(OBJ_FILE) $(TESTLIB_FILE)
 	#gcc $(OBJ_FILE) -o $@ -I./include -I../testlib/ -L./lib -L../testlib/ -ltestlib
