@@ -1,0 +1,1 @@
+cmd_/root/workspace/test_netfilter/testnetfilter.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.18.0-kali3-common/scripts/module-common.lds --build-id  -o /root/workspace/test_netfilter/testnetfilter.ko /root/workspace/test_netfilter/testnetfilter.o /root/workspace/test_netfilter/testnetfilter.mod.o
