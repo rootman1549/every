@@ -1,0 +1,18 @@
+OBJ_FILE := test_listlist.o listlist.o
+TARGET := test_listlist
+
+all : $(TARGET)
+
+$(TARGET) : $(OBJ_FILE)
+	gcc $(OBJ_FILE) -o $@ -I../app
+
+$(OBJ_FILE) : ./test_listlist.c ../app/listlist.c
+	gcc -c test_listlist.c -o test_listlist.o
+	gcc -I../app -c ../app/listlist.c -o listlist.o
+
+
+clean :
+	rm *.o
+	rm $(TARGET)
+
+.PHONY: all clean
