@@ -1,5 +1,5 @@
 config TANK
-　　tristate "tank project , YCMedia inc , all rights has reserved"
+　　tristate "tank project , XXMedia inc , all rights has reserved"
 　　default n
 　　help
 　　　this is a kernel module for tank project.
